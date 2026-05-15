@@ -1,0 +1,43 @@
+# Homebrew Luciferous Tap
+
+Personal Homebrew tap for my tools
+
+## Installation
+
+```bash
+brew tap alice/utilities
+```
+
+## Available Casks
+
+### tool-a
+
+Tool A description
+
+```bash
+brew install --cask tool-a
+```
+
+### tool-b
+
+Tool B description
+
+```bash
+brew install --cask tool-b
+```
+
+
+
+## Updating
+
+```bash
+brew update
+brew upgrade <formula>
+```
+
+## Uninstalling
+
+```bash
+brew uninstall <formula>
+brew untap alice/utilities
+```

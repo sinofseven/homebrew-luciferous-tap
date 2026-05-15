@@ -1,0 +1,35 @@
+# Homebrew Luciferous Tap
+
+Personal Homebrew tap for my tools
+
+## Installation
+
+```bash
+brew tap eve/comprehensive
+```
+
+## Available Casks
+
+### Complex Application
+
+This is a comprehensive application that provides many features including documentation generation, code analysis, and automated testing with support for multiple programming languages.
+
+```bash
+brew install --cask complex-app
+```
+
+
+
+## Updating
+
+```bash
+brew update
+brew upgrade <formula>
+```
+
+## Uninstalling
+
+```bash
+brew uninstall <formula>
+brew untap eve/comprehensive
+```

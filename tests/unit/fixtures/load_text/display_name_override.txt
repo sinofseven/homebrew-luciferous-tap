@@ -1,0 +1,43 @@
+# Homebrew Luciferous Tap
+
+Personal Homebrew tap for my tools
+
+## Installation
+
+```bash
+brew tap dave/branded-tools
+```
+
+## Available Casks
+
+### My Branded Cask
+
+My branded cask
+
+```bash
+brew install --cask my-cask
+```
+
+## Available Formulas
+
+### My CLI Tool
+
+My formula
+
+```bash
+brew install my-formula
+```
+
+## Updating
+
+```bash
+brew update
+brew upgrade <formula>
+```
+
+## Uninstalling
+
+```bash
+brew uninstall <formula>
+brew untap dave/branded-tools
+```

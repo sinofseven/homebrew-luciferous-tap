@@ -1,4 +1,5 @@
 from dataclasses import dataclass, field
+from pathlib import Path
 from uuid import uuid4
 
 from pytest import MonkeyPatch, fixture
@@ -34,3 +35,13 @@ def set_environments(request, monkeypatch: MonkeyPatch):
 
     for k, v in param.items():
         monkeypatch.setenv(k, v)
+
+
+@fixture(scope="function")
+def load_text(request):
+    param: str = request.param
+
+    filepath = Path(__file__).parent.joinpath(f"fixtures/load_text/{param}")
+
+    with open(filepath) as f:
+        return f.read()

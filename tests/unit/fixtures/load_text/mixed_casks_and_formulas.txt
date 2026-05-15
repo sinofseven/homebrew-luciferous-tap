@@ -1,0 +1,43 @@
+# Homebrew Luciferous Tap
+
+Personal Homebrew tap for my tools
+
+## Installation
+
+```bash
+brew tap charlie/all-tools
+```
+
+## Available Casks
+
+### gui-app
+
+GUI application
+
+```bash
+brew install --cask gui-app
+```
+
+## Available Formulas
+
+### cli-tool
+
+CLI tool
+
+```bash
+brew install cli-tool
+```
+
+## Updating
+
+```bash
+brew update
+brew upgrade <formula>
+```
+
+## Uninstalling
+
+```bash
+brew uninstall <formula>
+brew untap charlie/all-tools
+```

@@ -1,0 +1,43 @@
+# Homebrew Luciferous Tap
+
+Personal Homebrew tap for my tools
+
+## Installation
+
+```bash
+brew tap bob/dev-tools
+```
+
+
+
+## Available Formulas
+
+### linter
+
+Code linter tool
+
+```bash
+brew install linter
+```
+
+### formatter
+
+Code formatter tool
+
+```bash
+brew install formatter
+```
+
+## Updating
+
+```bash
+brew update
+brew upgrade <formula>
+```
+
+## Uninstalling
+
+```bash
+brew uninstall <formula>
+brew untap bob/dev-tools
+```
