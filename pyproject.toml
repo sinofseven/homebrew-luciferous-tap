@@ -4,9 +4,29 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "aws-lambda-powertools[all]==3.29.0",
+]
 
 [[tool.uv.index]]
 url = "https://pypi.flatt.tech/simple/"
 default = true
 
+[dependency-groups]
+dev = [
+    "black>=26.3.1",
+    "freezegun>=1.5.5",
+    "isort>=8.0.1",
+    "pytest>=9.0.2",
+]
+
+[tool.isort]
+profile = "black"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+addopts = ["--import-mode=importlib"]
+filterwarnings = [
+    "ignore::DeprecationWarning:botocore.*",
+    "ignore::DeprecationWarning:httplib2.*"
+]
