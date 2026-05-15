@@ -1,8 +1,6 @@
 from dataclasses import dataclass, field
 from uuid import uuid4
 
-import boto3
-from mypy_boto3_events import EventBridgeClient
 from pytest import MonkeyPatch, fixture
 
 LOCALSTACK_ENDPOINT_URL = "http://localhost:4566"
@@ -36,16 +34,3 @@ def set_environments(request, monkeypatch: MonkeyPatch):
 
     for k, v in param.items():
         monkeypatch.setenv(k, v)
-
-
-@fixture(scope="session")
-def client_events() -> EventBridgeClient:
-    return boto3.client("events", endpoint_url=LOCALSTACK_ENDPOINT_URL)
-
-
-@fixture(scope="function")
-def events_event_bus(request, client_events):
-    event_bus_name: str = request.param
-    client_events.create_event_bus(Name=event_bus_name)
-    yield
-    client_events.delete_event_bus(Name=event_bus_name)
