@@ -18,8 +18,6 @@ This is a comprehensive application that provides many features including docume
 brew install --cask complex-app
 ```
 
-
-
 ## Updating
 
 ```bash

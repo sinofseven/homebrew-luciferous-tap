@@ -8,10 +8,6 @@ Personal Homebrew tap for my tools
 brew tap user/homebrew-tools
 ```
 
-
-
-
-
 ## Updating
 
 ```bash

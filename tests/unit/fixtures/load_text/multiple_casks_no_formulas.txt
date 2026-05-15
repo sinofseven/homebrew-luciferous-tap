@@ -26,8 +26,6 @@ Tool B description
 brew install --cask tool-b
 ```
 
-
-
 ## Updating
 
 ```bash

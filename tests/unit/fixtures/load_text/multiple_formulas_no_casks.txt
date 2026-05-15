@@ -8,8 +8,6 @@ Personal Homebrew tap for my tools
 brew tap bob/dev-tools
 ```
 
-
-
 ## Available Formulas
 
 ### linter

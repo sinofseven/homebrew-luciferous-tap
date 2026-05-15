@@ -15,7 +15,7 @@ def render_readme(*, tap_name: str, tap_info: TapInfo) -> str:
     with open(PATH_TEMPLATE) as f:
         raw_template = f.read()
 
-    template = Template(raw_template)
+    template = Template(source=raw_template, trim_blocks=True, lstrip_blocks=True)
     return template.render(
         tap_name=tap_name,
         all_casks=tap_info.mapping_casks.values(),

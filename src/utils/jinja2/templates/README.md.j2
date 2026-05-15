@@ -7,9 +7,12 @@ Personal Homebrew tap for my tools
 ```bash
 brew tap {{ tap_name }}
 ```
+{% if all_casks|length > 0 %}
 
-{% if all_casks|length > 0 %}## Available Casks{% endif %}
+## Available Casks
+{% endif %}
 {% for cask in all_casks %}
+
 ### {{ cask.display_name if cask.display_name else cask.name }}
 
 {{ cask.description }}
@@ -18,8 +21,12 @@ brew tap {{ tap_name }}
 brew install --cask {{ cask.name }}
 ```
 {% endfor %}
-{% if all_formulas|length > 0 %}## Available Formulas{% endif %}
+{% if all_formulas|length > 0 %}
+
+## Available Formulas
+{% endif %}
 {% for formula in all_formulas %}
+
 ### {{ formula.display_name if formula.display_name else formula.name }}
 
 {{ formula.description }}
@@ -28,6 +35,7 @@ brew install --cask {{ cask.name }}
 brew install {{ formula.name }}
 ```
 {% endfor %}
+
 ## Updating
 
 ```bash
