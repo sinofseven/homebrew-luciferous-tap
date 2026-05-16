@@ -1,6 +1,6 @@
 from pydantic_settings import BaseSettings
 
-from utils.jinja2 import render_readme
+from utils.jinja2 import render_formula, render_readme
 from utils.logger import create_logger, logging_function
 from utils.models import TapInfo
 from utils.usecases import create_formula_info, parse_decoded_jwt_info, resolve_assets
@@ -44,6 +44,10 @@ def main():
     tap_info.save()
 
     # レンダーファイル
+    text_formula = render_formula(formula_info=formula_info)
+    with open(f"Formula/{formula_info.file_name}.rb", "w") as f:
+        f.write(text_formula)
+
     text_readme = render_readme(tap_name=env.tap_name, tap_info=tap_info)
     with open("README.md", "w") as f:
         f.write(text_readme)
