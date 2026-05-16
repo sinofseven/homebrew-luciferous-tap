@@ -1,0 +1,44 @@
+class {{ formula.class_name }} < Formula
+  desc "{{ formula.description }}"
+  homepage "{{ formula.homepage }}"
+  version "{{ formula.version }}"
+  license "{{ formula.license }}"
+{% if formula.assets.asset_macos %}
+
+  on_macos do
+    on_arm do
+      url "{{ formula.assets.asset_macos.url }}"
+      sha256 "{{ formula.assets.asset_macos.sha256 }}"
+    end
+    on_intel do
+      disable! date: "2026-05-15", because: "no x86_64 macOS binary is provided"
+    end
+  end
+{% endif %}
+{% if formula.assets.asset_linux_arm64 or formula.assets.asset_linux_amd64 %}
+
+  on_linux do
+{% if formula.assets.asset_linux_arm64 %}
+    on_arm do
+      url "{{ formula.assets.asset_linux_arm64.url }}"
+      sha256 "{{ formula.assets.asset_linux_arm64.sha256 }}"
+    end
+{% endif %}
+{% if formula.assets.asset_linux_amd64 %}
+    on_intel do
+      url "{{ formula.assets.asset_linux_amd64.url }}"
+      sha256 "{{ formula.assets.asset_linux_amd64.sha256 }}"
+    end
+{% endif %}
+  end
+{% endif %}
+
+  def install
+    bin.install "{{ formula.name }}"
+  end
+
+  test do
+    system "#{bin}/{{ formula.name }}", "{{ formula.command_test }}"
+  end
+end
+

@@ -1,7 +1,7 @@
 import pytest
 
 from utils.jinja2.render_readme import render_readme
-from utils.models import Package, TapInfo
+from utils.models import TapInfo, TapPackage
 
 
 class TestRenderReadme:
@@ -20,11 +20,11 @@ class TestRenderReadme:
                     "tap_name": "alice/utilities",
                     "tap_info": TapInfo(
                         mapping_casks={
-                            "tool-a": Package(
+                            "tool-a": TapPackage(
                                 name="tool-a",
                                 description="Tool A description",
                             ),
-                            "tool-b": Package(
+                            "tool-b": TapPackage(
                                 name="tool-b",
                                 description="Tool B description",
                             ),
@@ -40,11 +40,11 @@ class TestRenderReadme:
                     "tap_info": TapInfo(
                         mapping_casks={},
                         mapping_formulas={
-                            "linter": Package(
+                            "linter": TapPackage(
                                 name="linter",
                                 description="Code linter tool",
                             ),
-                            "formatter": Package(
+                            "formatter": TapPackage(
                                 name="formatter",
                                 description="Code formatter tool",
                             ),
@@ -58,13 +58,13 @@ class TestRenderReadme:
                     "tap_name": "charlie/all-tools",
                     "tap_info": TapInfo(
                         mapping_casks={
-                            "gui-app": Package(
+                            "gui-app": TapPackage(
                                 name="gui-app",
                                 description="GUI application",
                             ),
                         },
                         mapping_formulas={
-                            "cli-tool": Package(
+                            "cli-tool": TapPackage(
                                 name="cli-tool",
                                 description="CLI tool",
                             ),
@@ -78,14 +78,14 @@ class TestRenderReadme:
                     "tap_name": "dave/branded-tools",
                     "tap_info": TapInfo(
                         mapping_casks={
-                            "my-cask": Package(
+                            "my-cask": TapPackage(
                                 name="my-cask",
                                 description="My branded cask",
                                 display_name="My Branded Cask",
                             ),
                         },
                         mapping_formulas={
-                            "my-formula": Package(
+                            "my-formula": TapPackage(
                                 name="my-formula",
                                 description="My formula",
                                 display_name="My CLI Tool",
@@ -100,7 +100,7 @@ class TestRenderReadme:
                     "tap_name": "eve/comprehensive",
                     "tap_info": TapInfo(
                         mapping_casks={
-                            "complex-app": Package(
+                            "complex-app": TapPackage(
                                 name="complex-app",
                                 description="This is a comprehensive application that provides many features including documentation generation, code analysis, and automated testing with support for multiple programming languages.",
                                 display_name="Complex Application",
@@ -116,7 +116,7 @@ class TestRenderReadme:
                     "tap_name": "user-name/homebrew-special-tap-name",
                     "tap_info": TapInfo(
                         mapping_casks={
-                            "my-special-tool": Package(
+                            "my-special-tool": TapPackage(
                                 name="my-special-tool",
                                 description="A special tool",
                             ),
