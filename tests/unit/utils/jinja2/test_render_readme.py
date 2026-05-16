@@ -8,14 +8,15 @@ class TestRenderReadme:
     @pytest.mark.parametrize(
         "option,load_text",
         [
-            (
+            pytest.param(
                 {
                     "tap_name": "user/homebrew-tools",
                     "tap_info": TapInfo(mapping_casks={}, mapping_formulas={}),
                 },
-                "only_tap_name.txt",
+                "readme/only_tap_name.txt",
+                id="only_tap_name",
             ),
-            (
+            pytest.param(
                 {
                     "tap_name": "alice/utilities",
                     "tap_info": TapInfo(
@@ -32,9 +33,10 @@ class TestRenderReadme:
                         mapping_formulas={},
                     ),
                 },
-                "multiple_casks_no_formulas.txt",
+                "readme/multiple_casks_no_formulas.txt",
+                id="multiple_casks_no_formulas",
             ),
-            (
+            pytest.param(
                 {
                     "tap_name": "bob/dev-tools",
                     "tap_info": TapInfo(
@@ -51,9 +53,10 @@ class TestRenderReadme:
                         },
                     ),
                 },
-                "multiple_formulas_no_casks.txt",
+                "readme/multiple_formulas_no_casks.txt",
+                id="multiple_formulas_no_casks",
             ),
-            (
+            pytest.param(
                 {
                     "tap_name": "charlie/all-tools",
                     "tap_info": TapInfo(
@@ -71,9 +74,10 @@ class TestRenderReadme:
                         },
                     ),
                 },
-                "mixed_casks_and_formulas.txt",
+                "readme/mixed_casks_and_formulas.txt",
+                id="mixed_casks_and_formulas",
             ),
-            (
+            pytest.param(
                 {
                     "tap_name": "dave/branded-tools",
                     "tap_info": TapInfo(
@@ -93,9 +97,10 @@ class TestRenderReadme:
                         },
                     ),
                 },
-                "display_name_override.txt",
+                "readme/display_name_override.txt",
+                id="display_name_override",
             ),
-            (
+            pytest.param(
                 {
                     "tap_name": "eve/comprehensive",
                     "tap_info": TapInfo(
@@ -109,9 +114,10 @@ class TestRenderReadme:
                         mapping_formulas={},
                     ),
                 },
-                "long_descriptions.txt",
+                "readme/long_descriptions.txt",
+                id="long_descriptions",
             ),
-            (
+            pytest.param(
                 {
                     "tap_name": "user-name/homebrew-special-tap-name",
                     "tap_info": TapInfo(
@@ -124,17 +130,9 @@ class TestRenderReadme:
                         mapping_formulas={},
                     ),
                 },
-                "special_chars_in_tap_name.txt",
+                "readme/special_chars_in_tap_name.txt",
+                id="special_chars_in_tap_name",
             ),
-        ],
-        ids=[
-            "only_tap_name",
-            "multiple_casks_no_formulas",
-            "multiple_formulas_no_casks",
-            "mixed_casks_and_formulas",
-            "display_name_override",
-            "long_descriptions",
-            "special_chars_in_tap_name",
         ],
         indirect=["load_text"],
     )
