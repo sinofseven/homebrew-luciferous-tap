@@ -1,0 +1,89 @@
+name: create_formula_by_published_release.yml
+
+permissions:
+  contents: write
+
+on:
+  workflow_dispatch: 
+    inputs: 
+      name:
+        description: binary filename
+        type: string
+        required: true
+      display_name:
+        description: display_name
+        type: string
+        required: false
+      description:
+        description: description
+        type: string
+        required: true
+      license_name:
+        description: license_name
+        type: string
+        required: true
+      command_test:
+        description: test command for formula
+        type: string
+        required: true
+      jwt_token:
+        description: jwt_token
+        type: string
+        required: true
+
+env:
+  DECODED_JWT_FILE_NAME: "decoded_jwt.json"
+
+jobs: 
+  create_formula:
+    runs-on: ubuntu-24.04
+    environment: ${{ inputs.name }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+
+      - name: Verify jwt
+        uses: sinofseven/action-verify-jwt@v1.1.0
+        with:
+          token: ${{ inputs.jwt_token }}
+          jwks-url: "https://token.actions.githubusercontent.com/.well-known/jwks"
+          audience: ${{ secrets.JWT_AUDIENCE }}
+
+      - name: Decode and validate jwt
+        env:
+          JWT_TOKEN: ${{ inputs.jwt_token }}
+        run: |
+          jwt decode --json "$JWT_TOKEN" > $DECODED_JWT_FILE_NAME
+          event_name=$(jq -r '.payload.event_name' $DECODED_JWT_FILE_NAME)
+          if [ "$event_name" != "release" ]; then
+            echo "::error::payload.event_name が release ではありません (値: $event_name)"
+            exit 1
+          fi
+
+      - name: Setup uv
+        uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
+
+      - name: Install Dependencies
+        run: uv sync
+
+      - name: Create Formula and README
+        run: make create-formula-by-publishing-release
+        env:
+          FILENAME: ${{ inputs.name }}
+          DISPLAY_NAME: ${{ inputs.display_name }}
+          DESCRIPTION: ${{ inputs.description }}
+          LICENSE_NAME: ${{ inputs.license_name }}
+          COMMAND_TEST: ${{ inputs.command_test }}
+          TAP_NAME: ${{ github.repository }}
+
+      - name: Commit and push changes
+        if: success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add Formula/ README.md tap_info.json
+
+          # Get version from decoded JWT
+          VERSION=$(jq -r '.payload.ref | split("/")[-1]' ${{ env.DECODED_JWT_FILE_NAME }})
+
+          git diff --quiet --cached || (git commit -m "${{ inputs.name }} formula ($VERSION)" && git push)

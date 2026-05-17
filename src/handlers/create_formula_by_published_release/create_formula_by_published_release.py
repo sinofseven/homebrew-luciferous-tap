@@ -1,4 +1,4 @@
-from pydantic_settings import BaseSettings
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 from utils.jinja2 import render_formula, render_readme
 from utils.logger import create_logger, logging_function
@@ -7,6 +7,8 @@ from utils.usecases import create_formula_info, parse_decoded_jwt_info, resolve_
 
 
 class EnvironmentVariables(BaseSettings):
+    model_config = SettingsConfigDict(env_ignore_empty=True)
+
     filename: str
     display_name: str = None
     description: str
