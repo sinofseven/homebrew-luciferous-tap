@@ -43,7 +43,7 @@ jobs:
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
 
       - name: Verify jwt
-        uses: sinofseven/action-verify-jwt@v1.1.0
+        uses: sinofseven/action-verify-jwt@5bfb5327eba89c5f52681700450f5daa24925fcb # v1.1.0
         with:
           token: ${{ inputs.jwt_token }}
           jwks-url: "https://token.actions.githubusercontent.com/.well-known/jwks"
