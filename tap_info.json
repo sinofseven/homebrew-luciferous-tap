@@ -1,1 +1,10 @@
-{}
+{
+  "mapping_casks": {},
+  "mapping_formulas": {
+    "oidc-jwks-converter": {
+      "name": "oidc-jwks-converter",
+      "description": "CLI tool to extract and convert OIDC public keys to PEM certificate format",
+      "display_name": null
+    }
+  }
+}

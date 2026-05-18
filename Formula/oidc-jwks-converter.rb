@@ -1,13 +1,13 @@
 class OidcJwksConverter < Formula
-  desc "Convert OIDC JWKS public keys to PEM format"
+  desc "CLI tool to extract and convert OIDC public keys to PEM certificate format"
   homepage "https://github.com/sinofseven/oidc-jwks-converter"
-  version "0.1.0"
+  version "v0.2.0"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/sinofseven/oidc-jwks-converter/releases/download/v0.1.0/oidc-jwks-converter_v0.1.0_aarch64-apple-darwin.zip"
-      sha256 "c3c38539a5e5cd41f84e39d65b20c7b17a1e39df940185cf4a42978d5fb364fc"
+      url "https://github.com/sinofseven/oidc-jwks-converter/releases/download/v0.2.0/oidc-jwks-converter_v0.2.0_aarch64-apple-darwin.zip"
+      sha256 "02c0b6e10252bf715a67f5b4624bec1e2ee2e7d2cb6e8af191913a2c7999db4e"
     end
     on_intel do
       disable! date: "2026-05-15", because: "no x86_64 macOS binary is provided"
@@ -16,12 +16,12 @@ class OidcJwksConverter < Formula
 
   on_linux do
     on_arm do
-      url "https://github.com/sinofseven/oidc-jwks-converter/releases/download/v0.1.0/oidc-jwks-converter_v0.1.0_aarch64-unknown-linux-musl.zip"
-      sha256 "92c1bb7eec43082aa45ebc3a776347cbabe692d13fb01c2798ce9de263a70bf7"
+      url "https://github.com/sinofseven/oidc-jwks-converter/releases/download/v0.2.0/oidc-jwks-converter_v0.2.0_aarch64-unknown-linux-musl.zip"
+      sha256 "b1ee97bc9e72fe93c1a08753cc724ea0633e1e2cdfd131c0db4ed683f6f46dc1"
     end
     on_intel do
-      url "https://github.com/sinofseven/oidc-jwks-converter/releases/download/v0.1.0/oidc-jwks-converter_v0.1.0_x86_64-unknown-linux-musl.zip"
-      sha256 "45742af8a6628205348de0217953179a5f1580619e028e43d5ca154c13110588"
+      url "https://github.com/sinofseven/oidc-jwks-converter/releases/download/v0.2.0/oidc-jwks-converter_v0.2.0_x86_64-unknown-linux-musl.zip"
+      sha256 "cab3a822cd069b4192b6ad823340cd445bf7d6754685244de329e7dc3a386ac7"
     end
   end
 
