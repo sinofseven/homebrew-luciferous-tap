@@ -10,7 +10,7 @@ class EnvironmentVariables(BaseSettings):
     model_config = SettingsConfigDict(env_ignore_empty=True)
 
     filename: str
-    display_name: str = None
+    display_name: str | None = None
     description: str
     license_name: str
     command_test: str

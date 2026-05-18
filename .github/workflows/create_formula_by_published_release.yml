@@ -32,7 +32,7 @@ on:
         required: true
 
 env:
-  DECODED_JWT_FILE_NAME: "decoded_jwt.json"
+  DECODED_JWT_FILENAME: "decoded_jwt.json"
 
 jobs: 
   create_formula:
@@ -53,8 +53,8 @@ jobs:
         env:
           JWT_TOKEN: ${{ inputs.jwt_token }}
         run: |
-          jwt decode --json "$JWT_TOKEN" > $DECODED_JWT_FILE_NAME
-          event_name=$(jq -r '.payload.event_name' $DECODED_JWT_FILE_NAME)
+          jwt decode --json "$JWT_TOKEN" > $DECODED_JWT_FILENAME
+          event_name=$(jq -r '.payload.event_name' $DECODED_JWT_FILENAME)
           if [ "$event_name" != "release" ]; then
             echo "::error::payload.event_name が release ではありません (値: $event_name)"
             exit 1
@@ -84,6 +84,6 @@ jobs:
           git add Formula/ README.md tap_info.json
 
           # Get version from decoded JWT
-          VERSION=$(jq -r '.payload.ref | split("/")[-1]' ${{ env.DECODED_JWT_FILE_NAME }})
+          VERSION=$(jq -r '.payload.ref | split("/")[-1]' ${{ env.DECODED_JWT_FILENAME }})
 
           git diff --quiet --cached || (git commit -m "${{ inputs.name }} formula ($VERSION)" && git push)
