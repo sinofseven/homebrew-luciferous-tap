@@ -5,6 +5,11 @@
       "name": "oidc-jwks-converter",
       "description": "CLI tool to extract and convert OIDC public keys to PEM certificate format",
       "display_name": null
+    },
+    "case-converter": {
+      "name": "case-converter",
+      "description": "Convert text between case styles: snake_case, camelCase, PascalCase, kebab-case and more.",
+      "display_name": null
     }
   }
 }

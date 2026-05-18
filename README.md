@@ -18,6 +18,14 @@ CLI tool to extract and convert OIDC public keys to PEM certificate format
 brew install oidc-jwks-converter
 ```
 
+### case-converter
+
+Convert text between case styles: snake_case, camelCase, PascalCase, kebab-case and more.
+
+```bash
+brew install case-converter
+```
+
 ## Updating
 
 ```bash
