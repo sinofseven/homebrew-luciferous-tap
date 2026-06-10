@@ -50,6 +50,8 @@ def main():
     with open(f"Formula/{formula_info.file_name}.rb", "w") as f:
         f.write(text_formula)
 
-    text_readme = render_readme(tap_name=env.tap_name, tap_info=tap_info)
+    text_readme = render_readme(
+        tap_name=env.tap_name.replace("homebrew-", ""), tap_info=tap_info
+    )
     with open("README.md", "w") as f:
         f.write(text_readme)
