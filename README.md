@@ -26,6 +26,14 @@ Convert text between case styles: snake_case, camelCase, PascalCase, kebab-case 
 brew install case-converter
 ```
 
+### aws-credential-process-provider-from-dotenv
+
+AWS credential provider from .env files for AWS CLI credential_process
+
+```bash
+brew install aws-credential-process-provider-from-dotenv
+```
+
 ## Updating
 
 ```bash

@@ -10,6 +10,11 @@
       "name": "case-converter",
       "description": "Convert text between case styles: snake_case, camelCase, PascalCase, kebab-case and more.",
       "display_name": null
+    },
+    "aws-credential-process-provider-from-dotenv": {
+      "name": "aws-credential-process-provider-from-dotenv",
+      "description": "AWS credential provider from .env files for AWS CLI credential_process",
+      "display_name": null
     }
   }
 }
