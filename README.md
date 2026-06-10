@@ -5,7 +5,7 @@ Personal Homebrew tap for my tools
 ## Installation
 
 ```bash
-brew tap sinofseven/homebrew-luciferous-tap
+brew tap sinofseven/luciferous-tap
 ```
 
 ## Available Formulas
