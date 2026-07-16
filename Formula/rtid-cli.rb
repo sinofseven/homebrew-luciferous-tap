@@ -26,10 +26,10 @@ class RtidCli < Formula
   end
 
   def install
-    bin.install "rtid-cli"
+    bin.install "rtid"
   end
 
   test do
-    system "#{bin}/rtid-cli", "--version"
+    system "#{bin}/rtid", "--version"
   end
 end
