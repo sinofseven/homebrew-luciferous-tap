@@ -5,7 +5,7 @@ Personal Homebrew tap for my tools
 ## Installation
 
 ```bash
-brew tap sinofseven/luciferous-tap
+brew tap sinofseven/homebrew-luciferous-tap
 ```
 
 ## Available Formulas
@@ -32,6 +32,14 @@ AWS credential provider from .env files for AWS CLI credential_process
 
 ```bash
 brew install aws-credential-process-provider-from-dotenv
+```
+
+### rtid-cli
+
+This is CLI Tool for generating Reversed Timestamp ID.
+
+```bash
+brew install rtid-cli
 ```
 
 ## Updating

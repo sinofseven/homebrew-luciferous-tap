@@ -15,6 +15,11 @@
       "name": "aws-credential-process-provider-from-dotenv",
       "description": "AWS credential provider from .env files for AWS CLI credential_process",
       "display_name": null
+    },
+    "rtid-cli": {
+      "name": "rtid-cli",
+      "description": "This is CLI Tool for generating Reversed Timestamp ID.",
+      "display_name": null
     }
   }
 }
