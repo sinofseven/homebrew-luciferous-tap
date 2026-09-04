@@ -6,8 +6,8 @@ class RtidCli < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/sinofseven/rtid-cli/releases/download/v0.2.0/rtid_v0.2.0_aarch64-apple-darwin.zip"
-      sha256 "387649b6b05200dc391c5a76bd32ca4f45143786559fb3e6b166b0d7855bbc77"
+      url "https://github.com/sinofseven/rtid-cli/archive/refs/tags/v0.2.1.tar.gz"
+      sha256 "e126ec281d4d661aab0085fd620d608b8cadb9f644325707f316a720a2729b65"
     end
     on_intel do
       disable! date: "2026-05-15", because: "no x86_64 macOS binary is provided"
