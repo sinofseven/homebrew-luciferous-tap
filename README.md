@@ -5,7 +5,7 @@ Personal Homebrew tap for my tools
 ## Installation
 
 ```bash
-brew tap sinofseven/homebrew-luciferous-tap
+brew tap sinofseven/luciferous-tap
 ```
 
 ## Available Formulas
@@ -53,5 +53,5 @@ brew upgrade <formula>
 
 ```bash
 brew uninstall <formula>
-brew untap sinofseven/homebrew-luciferous-tap
+brew untap sinofseven/luciferous-tap
 ```
