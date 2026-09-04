@@ -42,6 +42,14 @@ This is CLI Tool for generating Reversed Timestamp ID.
 brew install rtid-cli
 ```
 
+### rtid-cli
+
+This is CLI Tool for generating Reversed Timestamp ID.
+
+```bash
+brew install rtid
+```
+
 ## Updating
 
 ```bash
