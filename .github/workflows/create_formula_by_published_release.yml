@@ -36,7 +36,7 @@ env:
 
 jobs: 
   create_formula:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     environment: ${{ inputs.name }}
     steps:
       - name: Checkout
