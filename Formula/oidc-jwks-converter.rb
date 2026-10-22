@@ -6,8 +6,8 @@ class OidcJwksConverter < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/sinofseven/oidc-jwks-converter/releases/download/v0.2.1/oidc-jwks-converter_v0.2.1_aarch64-apple-darwin.zip"
-      sha256 "3490ecc7812d2999913081458aae87c3fd25cdd4b88ea389d4431c0e58288abc"
+      url "https://github.com/sinofseven/oidc-jwks-converter/archive/refs/tags/v0.2.2.tar.gz"
+      sha256 "6317257e10e11fee49b2c7d2a119c921aeeb59b3e57b83edb4a98b36d2ebd0af"
     end
     on_intel do
       disable! date: "2026-05-15", because: "no x86_64 macOS binary is provided"
