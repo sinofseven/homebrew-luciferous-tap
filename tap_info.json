@@ -20,11 +20,6 @@
       "name": "rtid-cli",
       "description": "This is CLI Tool for generating Reversed Timestamp ID.",
       "display_name": null
-    },
-    "rtid": {
-      "name": "rtid",
-      "description": "This is CLI Tool for generating Reversed Timestamp ID.",
-      "display_name": "rtid-cli"
     }
   }
 }

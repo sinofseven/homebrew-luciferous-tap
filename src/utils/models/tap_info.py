@@ -2,8 +2,6 @@ import json
 
 from pydantic import BaseModel, Field
 
-from .formula_info import FormulaInfo
-
 FILENAME_TAP_INFO = "tap_info.json"
 
 

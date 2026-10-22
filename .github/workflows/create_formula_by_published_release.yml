@@ -4,37 +4,49 @@ permissions:
   contents: write
 
 on:
-  workflow_dispatch: 
-    inputs: 
+  workflow_dispatch:
+    inputs:
       name:
-        description: binary filename
         type: string
         required: true
+        description: Formula name
       display_name:
-        description: display_name
         type: string
         required: false
+        description: display name for README
+      file_name:
+        type: string
+        required: true
+        description: Formula file name
+      class_name:
+        type: string
+        required: true
+        description: Formula class name
       description:
+        type: string
+        required: true
         description: description
+      license:
         type: string
         required: true
-      license_name:
-        description: license_name
+        description: license name
+      bin_name:
         type: string
         required: true
+        description: formula binary name
       command_test:
+        type: string
+        required: true
         description: test command for formula
-        type: string
-        required: true
       jwt_token:
-        description: jwt_token
         type: string
         required: true
+        description: jwt token
 
 env:
   DECODED_JWT_FILENAME: "decoded_jwt.json"
 
-jobs: 
+jobs:
   create_formula:
     runs-on: ubuntu-24.04
     environment: ${{ inputs.name }}
@@ -69,10 +81,13 @@ jobs:
       - name: Create Formula and README
         run: make create-formula-by-publishing-release
         env:
-          FILENAME: ${{ inputs.name }}
+          FORMULA_NAME: ${{ inputs.name }}
           DISPLAY_NAME: ${{ inputs.display_name }}
+          FILE_NAME: ${{ inputs.file_name }}
+          CLASS_NAME: ${{ inputs.class_name }}
           DESCRIPTION: ${{ inputs.description }}
-          LICENSE_NAME: ${{ inputs.license_name }}
+          LICENSE: ${{ inputs.license }}
+          BIN_NAME: ${{ inputs.bin_name }}
           COMMAND_TEST: ${{ inputs.command_test }}
           TAP_NAME: ${{ github.repository }}
 
