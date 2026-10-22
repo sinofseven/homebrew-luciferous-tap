@@ -55,7 +55,7 @@ def main():
 
     # レンダーファイル
     text_formula = render_formula(formula_info=formula)
-    with open(f"Formula/{formula.file_name}.rb", "w") as f:
+    with open(f"Formula/{formula.file_name}", "w") as f:
         f.write(text_formula)
 
     text_readme = render_readme(
